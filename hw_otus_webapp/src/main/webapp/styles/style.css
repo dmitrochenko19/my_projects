@@ -1,0 +1,26 @@
+
+
+.border_block{
+    border: 1px solid;
+    padding: 5px;
+    width: 500px;
+    border-color: blue;
+}
+#studentTable {
+    border: 1px solid blue;
+    border-collapse: collapse;
+    width: 700px;
+}
+
+#studentTable tr td {
+    border: 1px solid blue;
+    padding: 5px;
+}
+.blank_row{
+    height: 15px;
+}
+input,select{
+    border: 1px solid;
+    border-color: blue;
+    width: 300px;
+}
