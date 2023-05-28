@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/styles/style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+
+<h3>Table of students</h3>
+<table id="studentTable">
+    <tbody id="tbody">
+    <tr>
+        <td>Student's name</td>
+        <td>Gender</td>
+        <td>Date of birth</td>
+        <td>Age</td>
+    </tr>
+
+    <tr th:each="student : ${students}">
+        <td><a th:href="@{students/{id} (id=${student.getId()})}"
+               th:text="${student.getName()}"></a></td>
+        <td th:text="${student.getSex()}"></td>
+        <td th:text="${student.getSQLDate()}"></td>
+        <td th:text="${student.getAge()}"></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4" class="blank_row"></td>
+    </tr>
+    <tr id="medium_age">
+        <td colspan="3">Medium age:</td>
+        <td th:text="${mediumAge}" id="result_age"></td>
+    </tr>
+    </tfoot>
+</table>
+<a th:href="@{/students/new}">Create new Student</a>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/styles/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<h3 class="border_block">Edit student</h3>
+<form th:method="PATCH" th:action="@{/students/{id}(id=${student.getId()})}" th:object="${student}"
+      class="border_block">
+    <p>
+        <label for="name"> Enter name: </label>
+        <input type="text" th:field="*{name}" id="name" style="margin-left: 85px"></p>
+
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+
+    <p>
+        <label for="birthdate">Enter birthdate: </label>
+        <input type="date" th:field="*{birthdate}" id="birthdate" style="margin-left: 65px"></p>
+    <div style="color:red" th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}">Date error</div>
+
+
+    <p>
+        <label for="sex">Gender:</label>
+        <select style="margin-left: 110px;" th:name="sex" id="sex">
+            <option>man</option>
+            <option>woman</option>
+        </select>
+    </p>
+    <p>
+    <input style="width: 70px" type="submit" value="submit">
+    </p>
+</form>
+</body>
+</html>
