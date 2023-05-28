@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/styles/style.css}" rel="stylesheet" />
+</head>
+<body>
+<h3 class="border_block">Form for adding student</h3>
+
+<form th:method="POST" th:action="@{/students}" th:object="${student}"  class="border_block">
+    <p>
+        <label for="name" >Student's name: </label>
+        <input type="text" th:name="name" id="name" th:field="*{name}" style="margin-left: 85px"></p>
+
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+
+    <p>
+        <label for="birthdate">Date of birth: </label>
+        <input  type="date" th:name="birthdate" id="birthdate" th:field="*{birthdate}"  style="margin-left: 100px"></p>
+        <div style="color:red" th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}">Date error</div>
+
+   <p>
+        <label for="sex">Gender:</label>
+        <select  th:name="sex" id="sex" style="margin-left: 190px; ">
+            <option>man</option>
+            <option>woman</option>
+        </select>
+    </p>
+    <p>
+        <button type="submit">Submit</button>
+    </p>
+</form>
+</body>
+</html>
